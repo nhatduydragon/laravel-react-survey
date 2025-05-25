@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('account_number');
+            $table->string('account_number')->unique();
             $table->decimal('balance', 16, 4)->default(0);
             $table->softDeletes();
             $table->timestamps();
