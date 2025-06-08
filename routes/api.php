@@ -5,6 +5,7 @@ use App\Http\Controllers\AccountDepositController;
 use App\Http\Controllers\AccountWithdrawalController;
 use App\Http\Controllers\api\PostController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\AwsController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PinController;
 use App\Http\Controllers\TransactionController;
@@ -22,6 +23,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
+Route::prefix('aws')->group( function () {
+    Route::get('/index', [AwsController::class, 'index']);
+    Route::post('/upload', [AwsController::class, 'upload']);
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
