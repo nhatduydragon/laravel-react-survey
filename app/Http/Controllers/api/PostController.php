@@ -30,7 +30,6 @@ class PostController extends Controller
 
         return response()->json([
             'data' => $postsCollection,
-            'status' => Response::HTTP_OK,
         ], Response::HTTP_OK);
     }
 
